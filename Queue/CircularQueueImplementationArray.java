@@ -59,19 +59,20 @@ public class CircularQueueImplementationArray {
     }
 
     public static void main(String[] args) {
-        CircularInnerQueueImplementationArray circularQ = new CircularInnerQueueImplementationArray(3);
-        circularQ.add(1);
-        circularQ.add(2);
-        circularQ.add(3);
+        // CircularInnerQueueImplementationArray circularQ = new
+        // CircularInnerQueueImplementationArray(3);
+        // circularQ.add(1);
+        // circularQ.add(2);
+        // circularQ.add(3);
         // System.out.println(circularQ.remove());
-        circularQ.remove();
-        circularQ.add(4);
+        // circularQ.remove();
+        // circularQ.add(4);
         // System.out.println(circularQ.remove());
-        circularQ.remove();
-        
-        while (!circularQ.isEmpty()) {
-            System.out.println(circularQ.peek());
-            circularQ.remove();
-        }
+        // circularQ.remove();
+
+        // while (!circularQ.isEmpty()) {
+        // System.out.println(circularQ.peek());
+        // circularQ.remove();
+        // }
     }
 }

@@ -6,7 +6,7 @@ public class PS07 {
         String[] arr = s.split(" ");
         String string = arr[arr.length - 1];
         int count = 0;
-        for (char c : string.toCharArray()) {
+        for (@SuppressWarnings("unused") char c : string.toCharArray()) {
             count++;
         }
         System.out.println(count);

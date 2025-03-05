@@ -49,14 +49,14 @@ public class QueueImplementationArray {
     }
 
     public static void main(String[] args) {
-        InnerQueueImplementationArray queue = new InnerQueueImplementationArray(5);
-        queue.add(0);
-        queue.add(1);
-        queue.add(2);
+        // InnerQueueImplementationArray queue = new InnerQueueImplementationArray(5);
+        // queue.add(0);
+        // queue.add(1);
+        // queue.add(2);
 
-        while (!queue.isEmpty()) {
-            System.out.println(queue.peek());
-            queue.remove();
-        }
+        // while (!queue.isEmpty()) {
+        // System.out.println(queue.peek());
+        // queue.remove();
+        // }
     }
 }

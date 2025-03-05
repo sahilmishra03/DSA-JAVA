@@ -68,13 +68,13 @@ public class PS02 {
     }
 
     public static void main(String[] args) {
-        InnerPS02 stack = new InnerPS02();
-        stack.add(1);
-        stack.add(2);
-        stack.add(3);
-        while (!stack.isEmpty()) {
-            System.out.println(stack.peek());
-            stack.remove();
-        }
+        // InnerPS02 stack = new InnerPS02();
+        // stack.add(1);
+        // stack.add(2);
+        // stack.add(3);
+        // while (!stack.isEmpty()) {
+        // System.out.println(stack.peek());
+        // stack.remove();
+        // }
     }
 }

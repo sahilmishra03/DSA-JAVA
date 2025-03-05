@@ -15,6 +15,7 @@ public class HashsetDemo {
         System.out.println(hashset.contains(2));
         System.out.println(hashset.remove(1));
         System.out.println(hashset);
+        @SuppressWarnings("rawtypes")
         Iterator iterator = hashset.iterator();
         while (iterator.hasNext()) {
             System.out.println(iterator.next());

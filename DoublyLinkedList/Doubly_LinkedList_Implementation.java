@@ -45,15 +45,15 @@ public class Doubly_LinkedList_Implementation {
 
     public static void main(String[] args) {
         Doubly_LinkedList_Implementation list = new Doubly_LinkedList_Implementation();
-        Scanner sc = new Scanner(System.in);
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("Enter the number of nodes to add:");
+            int n = sc.nextInt();
 
-        System.out.println("Enter the number of nodes to add:");
-        int n = sc.nextInt();
-
-        System.out.println("Enter the data for the nodes:");
-        for (int i = 0; i < n; i++) {
-            int data = sc.nextInt();
-            list.addNode(data);
+            System.out.println("Enter the data for the nodes:");
+            for (int i = 0; i < n; i++) {
+                int data = sc.nextInt();
+                list.addNode(data);
+            }
         }
 
         System.out.println("The contents of the doubly linked list are:");
