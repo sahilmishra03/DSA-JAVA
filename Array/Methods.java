@@ -7,6 +7,7 @@ public class Methods {
         arr[1]=10;
         arr[2]=20;
         arr[3]=30;
+        arr[4]=40;
         System.out.println(arr.length);
     }
 }
