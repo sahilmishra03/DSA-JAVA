@@ -9,7 +9,6 @@ public class RC02 {
         if (n < 10 && n >= 0) {
             return n;
         }
-
         return func1(n / 10) + n % 10;
     }
 
@@ -17,7 +16,6 @@ public class RC02 {
         if (n < 10 && n >= 0) {
             return count + 1;
         }
-
         return func2(n / 10, count + 1);
     }
 
@@ -25,7 +23,6 @@ public class RC02 {
         if (q == 0) {
             return 1;
         }
-
         return func3(p, q - 1) * p;
     }
 
@@ -33,7 +30,6 @@ public class RC02 {
         if (q == 0) {
             return 1;
         }
-
         if (q % 2 == 0) {
             return func4(p, q / 2) * func4(p, q / 2);
         } else {
