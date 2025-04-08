@@ -158,15 +158,38 @@ public class LinkedList {
         return value;
     }
 
+    public void removeFromLast(int n) {
+        int sz = 0;
+        Node temp = head;
+        while (temp != null) {
+            temp = temp.next;
+            sz++;
+        }
+        if (n == sz) {
+            head = head.next;
+            return;
+        }
+
+        int i = 1;
+        int iToFind = sz - n;
+        Node prev = head;
+        while (i < iToFind) {
+            prev = prev.next;
+            i++;
+        }
+        prev.next = prev.next.next;
+        return;
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         ll.addFirst(2);
         ll.addFirst(1);
         ll.addLast(3);
-        ll.addMiddle(9, 1);
+        ll.addLast(4);
+        ll.addLast(5);
         ll.print();
-        System.out.println(ll.removeMiddle(2));
+        ll.removeFromLast(2);
         ll.print();
-        System.out.println(size);
     }
 }
