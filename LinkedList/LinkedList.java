@@ -143,17 +143,17 @@ public class LinkedList {
         head = prev;
     }
 
-    public int removeMiddle(int key){
-        if (size==0) {
+    public int removeMiddle(int key) {
+        if (size == 0) {
             System.out.println("LL IS EMPTY");
             return -1;
         }
         Node prev = head;
-        while (prev.next.data!=key) {
-            prev=prev.next;
+        while (prev.next.data != key) {
+            prev = prev.next;
         }
         int value = prev.next.data;
-        prev.next=prev.next.next;
+        prev.next = prev.next.next;
         size--;
         return value;
     }
