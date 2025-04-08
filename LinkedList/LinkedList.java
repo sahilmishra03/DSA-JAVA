@@ -143,6 +143,21 @@ public class LinkedList {
         head = prev;
     }
 
+    public int removeMiddle(int key){
+        if (size==0) {
+            System.out.println("LL IS EMPTY");
+            return -1;
+        }
+        Node prev = head;
+        while (prev.next.data!=key) {
+            prev=prev.next;
+        }
+        int value = prev.next.data;
+        prev.next=prev.next.next;
+        size--;
+        return value;
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         ll.addFirst(2);
@@ -150,11 +165,8 @@ public class LinkedList {
         ll.addLast(3);
         ll.addMiddle(9, 1);
         ll.print();
-        System.out.println(ll.removeLast());
+        System.out.println(ll.removeMiddle(2));
         ll.print();
         System.out.println(size);
-        System.out.println(ll.searchR(9));
-        ll.reverse();
-        ll.print();
     }
 }
