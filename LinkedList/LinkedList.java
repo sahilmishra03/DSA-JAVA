@@ -229,13 +229,41 @@ public class LinkedList {
         return false;
     }
 
+    public boolean isPalindromeV3(Node head) {
+        if (head == null || head.next == null) {
+            return true;
+        }
+    
+        Node midNode = FindMid(head);
+        Node prev = null;
+        Node curr = midNode;
+        Node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+    
+        Node left = head;
+        Node right = prev; 
+    
+        while (right != null) {
+            if (left.data != right.data) {
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+        return true;
+    }
+    
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         ll.addFirst(2);
         ll.addFirst(1);
-        ll.addLast(1);
-        ll.addLast(2);
         ll.print();
-        System.out.println(ll.isPalindrome(head));
+        System.out.println(ll.isPalindromeV3(head));
     }
 }
