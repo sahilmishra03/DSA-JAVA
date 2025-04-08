@@ -181,15 +181,61 @@ public class LinkedList {
         return;
     }
 
+    public Node FindMid(Node head) {
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    public boolean isPalindrome(Node head) {
+        String s1 = "";
+        Node temp = head;
+        while (temp != null) {
+            int num = temp.data;
+            String sHelp = String.valueOf(num);
+            s1 += sHelp;
+            temp = temp.next;
+        }
+        String s2 = "";
+        for (int i = s1.length() - 1; i >= 0; i--) {
+            s2 += s1.charAt(i);
+        }
+
+        if (s1.equals(s2)) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isPalindromeV2(Node head) {
+        StringBuilder s1 = new StringBuilder();
+        Node temp = head;
+
+        while (temp != null) {
+            s1.append(temp.data);
+            temp = temp.next;
+        }
+
+        String s2 = s1.reverse().toString();
+        s1.reverse();
+
+        if (s1.toString().equals(s2)) {
+            return true;
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         ll.addFirst(2);
         ll.addFirst(1);
-        ll.addLast(3);
-        ll.addLast(4);
-        ll.addLast(5);
+        ll.addLast(1);
+        ll.addLast(2);
         ll.print();
-        ll.removeFromLast(2);
-        ll.print();
+        System.out.println(ll.isPalindrome(head));
     }
 }
