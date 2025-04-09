@@ -233,7 +233,7 @@ public class LinkedList {
         if (head == null || head.next == null) {
             return true;
         }
-    
+
         Node midNode = FindMid(head);
         Node prev = null;
         Node curr = midNode;
@@ -244,10 +244,10 @@ public class LinkedList {
             prev = curr;
             curr = next;
         }
-    
+
         Node left = head;
-        Node right = prev; 
-    
+        Node right = prev;
+
         while (right != null) {
             if (left.data != right.data) {
                 return false;
@@ -257,13 +257,55 @@ public class LinkedList {
         }
         return true;
     }
-    
+
+    public boolean hasCycle(Node head) {
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (fast == slow) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void removeCycle() {
+        Node slow = head;
+        Node fast = head;
+        Boolean cycle = false;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (fast == slow) {
+                cycle = true;
+                break;
+            }
+        }
+        if (cycle == false) {
+            return;
+        }
+        slow = head;
+        Node prv = null;
+        while (slow != fast) {
+            prv = fast;
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        prv.next = null;
+    }
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
-        ll.addFirst(2);
-        ll.addFirst(1);
-        ll.print();
-        System.out.println(ll.isPalindromeV3(head));
+        head = new Node(1);
+        Node temp = new Node(2);
+        head.next = temp;
+        head.next.next = new Node(3);
+        head.next.next.next = temp;
+        System.out.println(ll.hasCycle(head));
+        ll.removeCycle();
+        System.out.println(ll.hasCycle(head));
     }
 }
