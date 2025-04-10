@@ -71,13 +71,47 @@ public class DoublyLinkedList {
         System.out.println("null");
     }
 
+    public void addLast(int data) {
+        Node newNode = new Node(data);
+        size++;
+        if (head == null) {
+            head = tail = newNode;
+            return;
+        }
+        tail.next = newNode;
+        newNode.prev = tail;
+        tail = newNode;
+    }
+
+    public int removeLast() {
+        if (size == 0) {
+            System.out.println("LL IS EMPTY");
+            return Integer.MIN_VALUE;
+        } else if (size == 1) {
+            int val = head.data;
+            head = tail = null;
+            size = 0;
+            return val;
+        }
+        Node prev = head;
+        for (int i = 0; i < size - 2; i++) {
+            prev = prev.next;
+        }
+        int data = prev.next.data;
+        prev.next = null;
+        tail = prev;
+        size--;
+        return data;
+    }
+
     public static void main(String[] args) {
         DoublyLinkedList dll = new DoublyLinkedList();
         dll.addFirst(1);
         dll.addFirst(2);
         dll.addFirst(3);
+        dll.addLast(4);
         dll.print();
-        dll.reverse();
+        System.out.println(dll.removeLast());
         dll.print();
     }
 }
