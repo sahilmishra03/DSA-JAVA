@@ -21,15 +21,13 @@ public class BinaryTree {
         bt.print(bt.root);
     }
 
-    void createBinaryTree() {
-        root = new Node(50);
-        root.leftNode = new Node(25);
-        root.rightNode = new Node(55);
-        root.leftNode.leftNode = new Node(35);
-        root.leftNode.rightNode = new Node(44);
-        root.rightNode.leftNode = new Node(95);
-        root.rightNode.rightNode = new Node(62);
-        root.leftNode.rightNode.leftNode = new Node(11);
+    public Node createBinaryTree() {
+        root = new Node(3);
+        root.leftNode = new Node(9);
+        root.rightNode = new Node(20);
+        root.rightNode.leftNode = new Node(15);
+        root.rightNode.rightNode = new Node(17);
+        return this.root;
     }
 
     void print(Node root) {
