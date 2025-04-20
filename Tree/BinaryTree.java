@@ -1,6 +1,8 @@
 package Tree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class BinaryTree {
@@ -115,6 +117,23 @@ public class BinaryTree {
             int leftHeight = sum(root.left);
             int rightHeight = sum(root.right);
             return leftHeight + rightHeight + root.data;
+        }
+
+        public List<Integer> preorderTraversal(Node root) {
+            List<Integer> list = new ArrayList<>();
+            return helper(root,list);
+        }
+
+        private List<Integer> helper(Node root, List<Integer> list) {
+            if (root==null) {
+                return list;
+            }
+
+            list.add(root.data);
+            helper(root.left, list);
+            helper(root.right, list);
+
+            return list;
         }
     }
 
