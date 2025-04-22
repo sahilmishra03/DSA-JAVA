@@ -131,7 +131,7 @@ public class BST {
         if (root == null) {
             return true;
         }
-        
+
         ArrayList<Integer> res = new ArrayList<>();
         inOrderV2(root, res);
 
