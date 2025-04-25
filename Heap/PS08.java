@@ -35,7 +35,7 @@ public class PS08 {
         Set<List<Integer>> set = hashMap.keySet();
         List<List<Integer>> output = new ArrayList<>();
 
-        //Insert value in hashmap
+        // Insert value in hashmap
         for (int i = 0; i < nums1.length; i++) {
             for (int j = 0; j < nums2.length; j++) {
                 List<Integer> list = new ArrayList<>();
@@ -47,13 +47,13 @@ public class PS08 {
             }
         }
 
-        //Insert value in PQ
+        // Insert value in PQ
         for (List<Integer> list : set) {
             Pair p = new Pair(list, hashMap.get(list));
             pq.add(p);
         }
 
-        //Result
+        // Result
         for (int i = 0; i < k; i++) {
             Pair pair = pq.poll();
             output.add(pair.list);
