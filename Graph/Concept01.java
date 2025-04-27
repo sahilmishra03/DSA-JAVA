@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class connectedComponent {
+public class Concept01 {
 
     static class Edge {
         int src;
@@ -57,16 +57,7 @@ public class connectedComponent {
 
     }
 
-    public static void bfs(ArrayList<Edge>[] graph) {
-        boolean[] vis = new boolean[graph.length];
-        for (int i = 0; i < graph.length; i++) {
-            if (!vis[i]) {
-                bfsHelper(graph);
-            }
-        }
-    }
-
-    public static void bfsHelper(ArrayList<Edge>[] graph) {// 0(v+e)
+    public static void bfs(ArrayList<Edge>[] graph) {// 0(v+e)
         Queue<Integer> q = new LinkedList<>();
         boolean[] vis = new boolean[graph.length];
 
@@ -87,22 +78,13 @@ public class connectedComponent {
         }
     }
 
-    public static void dfs(ArrayList<Edge>[] graph) {
-        boolean[] vis = new boolean[graph.length];
-        for (int i = 0; i < graph.length; i++) {
-            if (!vis[i]) {
-                dfsHelper(graph, i, vis);
-            }
-        }
-    }
-
-    public static void dfsHelper(ArrayList<Edge>[] graph, int curr, boolean vis[]) {// (v+e)
+    public static void dfs(ArrayList<Edge>[] graph, int curr, boolean vis[]) {//(v+e)
         System.out.print(curr + " ");
         vis[curr] = true;
         for (int i = 0; i < graph[curr].size(); i++) {
             Edge e = graph[curr].get(i);
             if (!vis[e.dest]) {
-                dfsHelper(graph, e.dest, vis);
+                dfs(graph, e.dest, vis);
             }
         }
 
@@ -113,5 +95,6 @@ public class connectedComponent {
         ArrayList<Edge>[] graph = new ArrayList[v];
         createGraph(graph);
 
+        dfs(graph, 0, new boolean[v]);
     }
 }

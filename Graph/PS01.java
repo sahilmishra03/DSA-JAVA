@@ -1,7 +1,7 @@
 package Graph;
 
 import java.util.ArrayList;
-import Graph.Graph.Edge;
+import Graph.Concept01.Edge;
 
 public class PS01 {
     // Method to create the graph
