@@ -5,8 +5,8 @@ import java.util.List;
 
 public class PS118 {
     public static void main(String[] args) {
-        int[] num = {1,2,0,0};
-        int k=34;
+        int[] num = { 1, 2, 0, 0 };
+        int k = 34;
         System.out.println(addToArrayForm(num, k));
     }
 
@@ -14,10 +14,10 @@ public class PS118 {
         String string = "";
         for (int i = 0; i < num.length; i++) {
             String helper = String.valueOf(num[i]);
-            string+=helper;
+            string += helper;
         }
 
-        int sum = Integer.parseInt(string)+k;
+        int sum = Integer.parseInt(string) + k;
         List<Integer> result = new ArrayList<>();
         String utilString = String.valueOf(sum);
         for (int i = 0; i < utilString.length(); i++) {
