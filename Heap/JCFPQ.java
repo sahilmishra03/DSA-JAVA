@@ -1,5 +1,6 @@
 package Heap;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class JCFPQ {
@@ -19,7 +20,7 @@ public class JCFPQ {
     }
 
     public static void main(String[] args) {
-        PriorityQueue<Student> pq = new PriorityQueue<>();
+        PriorityQueue<Student> pq = new PriorityQueue<>(Comparator.reverseOrder());
         pq.add(new Student("Sahil", 4));
         pq.add(new Student("Arnav", 3));
         pq.add(new Student("OM", 1));
