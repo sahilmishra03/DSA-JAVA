@@ -30,4 +30,4 @@ public class PS12 {
 
         return pq.peek();
     }
-}
+}   
