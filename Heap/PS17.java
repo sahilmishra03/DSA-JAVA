@@ -4,7 +4,7 @@ import java.util.PriorityQueue;
 
 public class PS17 {
     public static void main(String[] args) {
-        PriorityQueue<int[]> pq = new PriorityQueue<>((e1, e2) -> e1[0] - e2[0]); 
+        PriorityQueue<int[]> pq = new PriorityQueue<>((e1, e2) -> e1[0] - e2[0]);
         int[][] points = { { 1, 3 }, { -2, 2 } };
         int k = 1;
 
