@@ -1,14 +1,13 @@
 package Stack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class MyCustomStack {
-    int[] customStack;
-    int tos;
-    int size;
+    List<Integer> customStack;
 
     MyCustomStack(int size) {
-        this.size = size;
-        this.customStack = new int[size];
-        this.tos = -1;
+        this.customStack = new ArrayList<Integer>();
     }
 
     public void pop() {
@@ -16,17 +15,11 @@ class MyCustomStack {
             System.out.println("Stack is Empty");
             return;
         }
-        System.out.println("Value removed " + customStack[this.tos]);
-        tos--;
+        System.out.println("Value removed " + customStack.remove(customStack.size() - 1));
     }
 
     public void push(int data) {
-        if (isFull()) {
-            System.out.println("Stack is Full");
-            return;
-        }
-        tos = tos + 1;
-        customStack[tos] = data;
+        customStack.add(data);
         System.out.println("Data is Inserted " + data);
     }
 
@@ -35,8 +28,8 @@ class MyCustomStack {
             System.out.println("Stack is Empty");
             return;
         }
-        for (int i = tos; i >= 0; i--) {
-            System.out.println(customStack[i]);
+        for (int i = 0; i < customStack.size(); i++) {
+            System.out.print(customStack.get(i) + " ");
         }
     }
 
@@ -45,15 +38,11 @@ class MyCustomStack {
             System.out.println("Stack is Empty");
             return -1;
         }
-        return customStack[tos];
+        return customStack.get(customStack.size() - 1);
     }
 
     public boolean isEmpty() {
-        return tos == -1;
-    }
-
-    public boolean isFull() {
-        return tos == customStack.length - 1;
+        return customStack.size() == 0;
     }
 
 }
