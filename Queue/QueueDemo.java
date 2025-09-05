@@ -1,64 +1,61 @@
 package Queue;
 
-class MyCustomQueue {
-    int[] customQueue;
-    int front;
-    int rear;
-    int size;
+public class QueueDemo {
+    static int arr[];
+    static int size;
+    static int rear = -1;;
 
-    MyCustomQueue(int size) {
-        this.customQueue = new int[size];
-        this.front = 1;
-        this.rear = -1;
+    QueueDemo(int size) {
+        arr = new int[size];
+        this.size = size;
     }
 
-    public boolean isEmpty() {
-        return front > rear;
+    public static boolean isEmpty() {
+        return rear == -1;
     }
 
-    public boolean isFull() {
-        return rear == customQueue.length - 1;
-    }
-
-    public void pop() {
-        if (isEmpty()) {
-            System.out.println("Queue is Empty");
-            return;
-        }
-        int data = customQueue[front];
-        front++;
-        System.out.println("Data removed " + data);
-    }
-
-    public void push(int data) {
-        if (isFull()) {
+    public static void add(int x) {
+        if (rear == size - 1) {
             System.out.println("Queue is Full");
             return;
         }
-        rear = rear + 1;
-        customQueue[rear] = data;
-        System.out.println("Data Inserted");
+
+        rear++;
+        arr[rear] = x;
     }
 
-    public void show() {
+    public static int remove() {
         if (isEmpty()) {
             System.out.println("Queue is Empty");
-            return;
+            return -1;
         }
-        for (int i = front; i <= rear; i++) {
-            System.out.println(customQueue[i]);
-        }
-    }
-}
 
-public class QueueDemo {
+        int front = arr[0];
+
+        for (int i = 0; i < rear; i++) {
+            arr[i] = arr[i + 1];
+        }
+
+        rear--;
+
+        return front;
+    }
+
+    public static int peek() {
+        if (isEmpty()) {
+            System.out.println("Queue is Empty");
+            return -1;
+        }
+
+        int front = arr[0];
+
+        return front;
+    }
+
     public static void main(String[] args) {
-        MyCustomQueue queue = new MyCustomQueue(5);
-        queue.push(1);
-        queue.push(2);
-        queue.push(3);
-        queue.show();
-        queue.pop();
-        queue.show();
+        QueueDemo queue = new QueueDemo(5);
+        queue.add(1);
+        queue.add(2);
+        queue.add(3);
     }
 }
