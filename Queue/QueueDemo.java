@@ -7,7 +7,7 @@ public class QueueDemo {
 
     QueueDemo(int size) {
         arr = new int[size];
-        this.size = size;
+        // this.size = size;
     }
 
     public static boolean isEmpty() {
@@ -53,9 +53,9 @@ public class QueueDemo {
     }
 
     public static void main(String[] args) {
-        QueueDemo queue = new QueueDemo(5);
-        queue.add(1);
-        queue.add(2);
-        queue.add(3);
+        // QueueDemo queue = new QueueDemo(5);
+        // queue.add(1);
+        // queue.add(2);
+        // queue.add(3);
     }
 }
