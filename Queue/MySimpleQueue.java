@@ -43,34 +43,32 @@ public class MySimpleQueue {
     }
 
     public static void main(String[] args) {
-        MyQueue queue = new MyQueue();
+        MyQueue.enqueue(10);
+        System.out.println(MyQueue.peek());
 
-        queue.enqueue(10);
-        System.out.println(queue.peek());
+        MyQueue.enqueue(20);
+        System.out.println(MyQueue.peek());
 
-        queue.enqueue(20);
-        System.out.println(queue.peek());
+        MyQueue.enqueue(30);
+        System.out.println(MyQueue.peek());
 
-        queue.enqueue(30);
-        System.out.println(queue.peek());
+        MyQueue.enqueue(40);
+        System.out.println(MyQueue.peek());
 
-        queue.enqueue(40);
-        System.out.println(queue.peek());
+        System.out.println(MyQueue.isEmpty());
 
-        System.out.println(queue.isEmpty());
+        MyQueue.dequeue();
+        System.out.println(MyQueue.peek());
 
-        queue.dequeue();
-        System.out.println(queue.peek());
+        MyQueue.dequeue();
+        System.out.println(MyQueue.peek());
 
-        queue.dequeue();
-        System.out.println(queue.peek());
+        MyQueue.dequeue();
+        System.out.println(MyQueue.peek());
 
-        queue.dequeue();
-        System.out.println(queue.peek());
+        MyQueue.dequeue();
+        System.out.println(MyQueue.peek());
 
-        queue.dequeue();
-        System.out.println(queue.peek());
-
-        System.out.println(queue.isEmpty());
+        System.out.println(MyQueue.isEmpty());
     }
 }
