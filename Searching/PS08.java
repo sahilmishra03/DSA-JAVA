@@ -3,7 +3,7 @@ package Searching;
 public class PS08 {
     public static void main(String[] args) {
         int[] nums = { 12, 10, 5, 3, 1, 0, -1, -3, -5, -7 };
-        System.out.println(search(nums, 10));
+        System.out.println(search(nums, -3));
     }
 
     public static int search(int[] nums, int value) {
