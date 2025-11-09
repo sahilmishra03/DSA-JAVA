@@ -1,41 +1,36 @@
-package Recursion;
-
 public class QuickSort {
     public static void main(String[] args) {
-        int[] arr = { 7, 2, 1, 6, 3, 0, 8, 4 };
-        quickSortFunction(arr, 0, arr.length - 1);
-
-        for (int val : arr) {
-            System.out.println(val);
+        int[] array = { 34, 7, 23, 32, 5, 62 };
+        quickSortFunc(array, 0, array.length - 1);
+        for (int num : array) {
+            System.out.print(num + " ");
         }
     }
 
-    public static void quickSortFunction(int[] arr, int start, int end) {
-        if (start >= end) {
+    public static void quickSortFunc(int[] array, int i, int j) {
+        if (i >= j) {
             return;
         }
-
-        int pivot = partition(arr, start, end);
-        quickSortFunction(arr, start, pivot - 1);
-        quickSortFunction(arr, pivot + 1, end);
+        int pivot = partition(array, i, j);
+        quickSortFunc(array, i, pivot - 1);
+        quickSortFunc(array, pivot + 1, j);
     }
 
-    public static int partition(int[] arr, int start, int end) {
-        int pivotElement = arr[end];
-        int i = start;
+    public static int partition(int[] array, int i, int j) {
+        int pIdx = j;
 
-        for (int j = start; j <= end; j++) {
-            if (arr[j] < pivotElement) {
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+        for (int k = i; k < j; k++) {
+            if (array[k] < array[pIdx]) {
+                int temp = array[i];
+                array[i] = array[k];
+                array[k] = temp;
                 i++;
             }
         }
 
-        int temp = arr[i];
-        arr[i] = arr[end];
-        arr[end] = temp;
+        int temp = array[i];
+        array[i] = array[pIdx];
+        array[pIdx] = temp;
 
         return i;
     }
