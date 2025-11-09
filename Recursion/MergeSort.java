@@ -1,49 +1,48 @@
 package Recursion;
-
 public class MergeSort {
     public static void main(String[] args) {
-        int arr[] = new int[] { 7, 2, 6, 4, 9, 8, 1, 5 };
-        mergeSortHelper(arr, 0, arr.length - 1);
-
-        for (int val : arr) {
-            System.out.println(val);
+        int[] array = { 38, 27, 43, 3, 9, 82, 10 };
+        mergeSortHelper(array, 0, array.length - 1);
+        for (int num : array) {
+            System.out.print(num + " ");
         }
     }
 
-    public static void mergeSortHelper(int arr[], int start, int end) {
-        if (start >= end) {
+    public static void mergeSortHelper(int[] array, int i, int j) {
+        if (i >= j) {
             return;
         }
-
-        int mid = start + (end - start) / 2;
-
-        mergeSortHelper(arr, start, mid);
-        mergeSortHelper(arr, mid + 1, end);
-        merge(arr, start, mid, end);
+        int mid = (i + j) / 2;
+        mergeSortHelper(array, i, mid);
+        mergeSortHelper(array, mid + 1, j);
+        merge(array, i, mid, j);
     }
 
-    public static void merge(int arr[], int start, int mid, int end) {
-        int[] temp = new int[end - start + 1];
-        int p1 = start, p2 = mid + 1, p3 = 0;
+    public static void merge(int[] array, int i, int mid, int j) {
+        int temp[] = new int[j - i + 1];
+        int left = i;
+        int right = mid + 1;
+        int k = 0;
 
-        while (p1 <= mid && p2 <= end) {
-            if (arr[p1] < arr[p2]) {
-                temp[p3++] = arr[p1++];
+        while (left <= mid && right <= j) {
+            if (array[left] < array[right]) {
+                temp[k++] = array[left++];
             } else {
-                temp[p3++] = arr[p2++];
+                temp[k++] = array[right++];
             }
         }
 
-        while (p1 <= mid) {
-            temp[p3++] = arr[p1++];
+        while (left <= mid) {
+            temp[k++] = array[left++];
         }
 
-        while (p2 <= end) {
-            temp[p3++] = arr[p2++];
+        while (right <= j) {
+            temp[k++] = array[right++];
         }
 
-        for (int i = 0; i < temp.length; i++) {
-            arr[start + i] = temp[i];
+        left = i;
+        for (int m = 0; m < temp.length; m++) {
+            array[left++] = temp[m];
         }
     }
 }
