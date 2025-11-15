@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class PS01 {
@@ -64,6 +65,46 @@ public class PS01 {
         }
     }
 
+    public static void pathHelper(Node root, int sum, List<String> out, int low, int high) {
+        if (root == null)
+            return;
+
+        if (root.left == null && root.right == null) {
+            sum += root.val;
+            if (sum >= low && sum <= high) {
+                out.add(root.val + "");
+            }
+            System.out.println(out);
+            return;
+        }
+
+        sum = sum + root.val;
+        pathHelper(root.left, sum, out, low, high);
+        pathHelper(root.right, sum, out, low, high);
+    }
+
+    public static boolean pathsHelper(Node root, ArrayList<Integer> temp, int target) {
+        if (root == null)
+            return false;
+
+        if (root.val == target) {
+            temp.add(root.val);
+            return true;
+        }
+        boolean left = pathsHelper(root.left, temp, target);
+        if (left) {
+            temp.add(root.val);
+            return true;
+        }
+        boolean right = pathsHelper(root.right, temp, target);
+        if (right) {
+            temp.add(root.val);
+            return true;
+        }
+
+        return false;
+    }
+
     public static void main(String[] args) {
         list = new ArrayList<>();
         Node newTree = new Node(50);
@@ -78,10 +119,6 @@ public class PS01 {
         newTree.right.left.left = new Node(60);
         newTree.right.left.left = new Node(70);
 
-        System.out.println(searchBT(newTree, 70));
-        System.out.println(list.reversed());
-
-        System.out.println("Nodes at k level down:");
-        kleveldown(newTree, 2);
+        pathHelper(newTree, 0, new ArrayList<>(), 100, 250);
     }
 }
